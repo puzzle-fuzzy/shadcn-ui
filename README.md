@@ -17,6 +17,17 @@ bunx --bun shadcn@latest add puzzle-fuzzy/shadcn-ui/app-button
 
 `packages/ui/src/components/ui` 只存放官方 shadcn 源码；`packages/ui/src/components/custom` 存放个人组件和组合组件。上游同步只允许修改官方目录，不会覆盖个人组件。
 
+## 发布 npm
+
+GitHub Actions 使用 Changesets 管理版本。先在仓库的 Actions secrets 中配置 `NPM_TOKEN`，再运行：
+
+```bash
+bun run changeset
+git push origin main
+```
+
+Action 会创建版本 PR；合并版本 PR 后才会发布到 `https://registry.npmjs.org/`。
+
 ## 本地验证
 
 ```bash
