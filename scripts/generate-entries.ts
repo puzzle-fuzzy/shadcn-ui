@@ -87,6 +87,12 @@ async function main() {
     await writeFile(outputFile, `export * from "${specifier}"\n`, "utf8")
   }
 
+  await writeFile(
+    resolve(generatedRoot, "public.ts"),
+    `${entries.map((entry) => `export * from "./${entry.publicName}"`).join("\n")}\n`,
+    "utf8"
+  )
+
   console.log(`Generated ${entries.length} package entries in ${generatedRoot}`)
 }
 

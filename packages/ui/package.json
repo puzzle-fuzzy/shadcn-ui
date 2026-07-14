@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": false,
   "type": "module",
+  "license": "MIT",
   "files": [
     "dist",
     "README.md",
@@ -12,9 +13,9 @@
     "dev": "vite build --watch",
     "generate:entries": "bun ../../scripts/generate-entries.ts",
     "prebuild": "bun run generate:entries",
-    "build": "vite build",
+    "build": "vite build && bun ../../scripts/build-types.ts",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint src scripts --max-warnings 0",
+    "lint": "eslint src ../../scripts --max-warnings 0",
     "test": "vitest run src",
     "verify": "bun run typecheck && bun run build && bun run test"
   },
@@ -35,13 +36,22 @@
     "react-dom": "^19.2.7",
     "typescript": "~6.0.2",
     "vite": "^8.1.4",
-    "vite-plugin-dts": "^5.0.3",
-    "vite-tsconfig-paths": "^6.1.1",
     "vitest": "^4.1.10"
   },
   "publishConfig": {
     "access": "public"
   },
+  "exports": {
+    "./package.json": "./package.json",
+    "./styles.css": "./dist/styles.css",
+    "./*": {
+      "types": "./dist/public.d.ts",
+      "import": "./dist/*.js"
+    }
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
   "dependencies": {
     "@base-ui/react": "^1.6.0",
     "@shadcn/react": "^0.2.1",
