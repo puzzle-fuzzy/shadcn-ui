@@ -1,5 +1,6 @@
 import { Button } from "@puzzle-fuzzy/shadcn-ui/button"
 import { AppButton } from "@puzzle-fuzzy/shadcn-ui/custom/app-button"
+import { Widget } from "@puzzle-fuzzy/shadcn-ui/custom/widget"
 
 export default function App() {
   return (
@@ -30,6 +31,41 @@ export default function App() {
               <AppButton>Open workspace</AppButton>
               <AppButton variant="outline">See details</AppButton>
             </div>
+          </div>
+        </section>
+
+        <section className="flex flex-col gap-4" aria-label="Widget previews">
+          <div>
+            <p className="text-sm font-medium tracking-[0.2em] text-muted-foreground uppercase">personal composition</p>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight">Widget</h2>
+            <p className="mt-2 max-w-2xl text-muted-foreground">
+              Compact metric cards with a built-in line chart or activity dot chart.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-3">
+            <Widget
+              title="Spending"
+              value={85}
+              unit="USD"
+              chartData={[42, 58, 45, 72, 60, 85, 78]}
+              chartAriaLabel="Spending trend over the last seven days"
+            />
+            <Widget
+              title="Activity"
+              value={8}
+              unit="days"
+              chartType="activity"
+              chartData={[1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1]}
+              chartAriaLabel="Activity over the last two weeks"
+            />
+            <Widget
+              title="Tasks done"
+              value={8}
+              unit="items"
+              chartData={[3, 5, 2, 7, 4, 6, 8]}
+              chartAriaLabel="Tasks completed over the last seven days"
+            />
           </div>
         </section>
       </div>
