@@ -4,6 +4,12 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      bootstrap:
+        description: Publish the current package version once (initial release only)
+        required: true
+        default: false
+        type: boolean
 
 permissions:
   contents: write
@@ -31,7 +37,14 @@ jobs:
       - name: Verify workspace
         run: bun run verify
 
+      - name: Bootstrap npm publish
+        if: github.event_name == 'workflow_dispatch' && inputs.bootstrap == true
+        run: npm publish --workspace=@puzzle-fuzzy/shadcn-ui --access public --registry=https://registry.npmjs.org
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Create release PR or publish
+        if: github.event_name != 'workflow_dispatch' || inputs.bootstrap != true
         uses: changesets/action@v1
         with:
           version: bun run version
