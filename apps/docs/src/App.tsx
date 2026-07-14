@@ -10,13 +10,13 @@ export default function App() {
           <p className="text-sm font-medium tracking-[0.2em] text-muted-foreground uppercase">拼图模糊组件库</p>
           <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">一个源代码，两种分发方式。</h1>
           <p className="text-lg text-muted-foreground">
-            官方 shadcn 组件持续保持可更新，自定义组合则由你自由演进。
+            官方组件持续保持可更新，自定义组合则由你自由演进。
           </p>
         </header>
 
         <section className="grid gap-6 md:grid-cols-2" aria-label="组件预览">
           <div className="rounded-xl border bg-card p-6 text-card-foreground shadow-sm">
-            <p className="mb-2 text-sm font-medium text-muted-foreground">npm 子路径导出</p>
+            <p className="mb-2 text-sm font-medium text-muted-foreground">子路径导出</p>
             <h2 className="mb-6 text-xl font-semibold">官方按钮</h2>
             <div className="flex flex-wrap gap-3">
               <Button>继续</Button>
