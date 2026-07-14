@@ -12,7 +12,7 @@ import "@puzzle-fuzzy/shadcn-ui/styles.css"
 ## shadcn registry
 
 ```bash
-bunx --bun shadcn@latest add puzzle-fuzzy/shadcn-ui/custom/app-button
+bunx --bun shadcn@latest add puzzle-fuzzy/shadcn-ui/app-button
 ```
 
 `packages/ui/src/components/ui` 只存放官方 shadcn 源码；`packages/ui/src/components/custom` 存放个人组件和组合组件。上游同步只允许修改官方目录，不会覆盖个人组件。
