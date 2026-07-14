@@ -10,7 +10,7 @@
 
 ## Global Constraints
 
-- Repository is independent at `G:\puzzle-fuzzy-shadcn-ui`; do not modify `G:\SuperGlasses` or `puzzle-fuzzy/components`.
+- Repository is independent at `R:\puzzle-fuzzy-shadcn-ui`; do not modify `G:\SuperGlasses` or `puzzle-fuzzy/components`.
 - GitHub repository is public and named `puzzle-fuzzy/shadcn-ui`.
 - npm package name is `@puzzle-fuzzy/shadcn-ui`; do not reuse the existing Vue package `@puzzle-fuzzy/ui`.
 - Use Bun commands and commit `bun.lock`; use `tsc` for type checking because Bun's bundler does not type-check.
@@ -25,12 +25,12 @@
 ### Task 1: Bootstrap the Bun workspace and repository metadata
 
 **Files:**
-- Create: `G:\puzzle-fuzzy-shadcn-ui\package.json`
-- Create: `G:\puzzle-fuzzy-shadcn-ui\bunfig.toml`
-- Create: `G:\puzzle-fuzzy-shadcn-ui\tsconfig.json`
-- Create: `G:\puzzle-fuzzy-shadcn-ui\.gitignore`
-- Create: `G:\puzzle-fuzzy-shadcn-ui\README.md`
-- Modify: `G:\puzzle-fuzzy-shadcn-ui\docs/superpowers/plans/2026-07-14-shadcn-ui-distribution.md` only if implementation discoveries require a plan correction
+- Create: `R:\puzzle-fuzzy-shadcn-ui\package.json`
+- Create: `R:\puzzle-fuzzy-shadcn-ui\bunfig.toml`
+- Create: `R:\puzzle-fuzzy-shadcn-ui\tsconfig.json`
+- Create: `R:\puzzle-fuzzy-shadcn-ui\.gitignore`
+- Create: `R:\puzzle-fuzzy-shadcn-ui\README.md`
+- Modify: `R:\puzzle-fuzzy-shadcn-ui\docs/superpowers/plans/2026-07-14-shadcn-ui-distribution.md` only if implementation discoveries require a plan correction
 
 **Interfaces:**
 - Produces the root `workspaces` configuration consumed by all later tasks.

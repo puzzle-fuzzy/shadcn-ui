@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "ignoreDeprecations": "6.0",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["../../packages/ui/src/*"],
+      "@puzzle-fuzzy/shadcn-ui/button": ["../../packages/ui/src/components/ui/button.tsx"],
+      "@puzzle-fuzzy/shadcn-ui/custom/*": ["../../packages/ui/src/components/custom/*"],
+      "@puzzle-fuzzy/shadcn-ui/styles.css": ["../../packages/ui/src/styles/globals.css"]
+    }
+  },
+  "include": ["src"],
+  "references": []
+}

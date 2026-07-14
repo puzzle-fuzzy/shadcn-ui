@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "puzzle-fuzzy-shadcn-ui",
+  "homepage": "https://github.com/puzzle-fuzzy/shadcn-ui",
+  "items": [
+    {
+      "name": "app-button",
+      "type": "registry:ui",
+      "title": "App Button",
+      "description": "A compact secondary button composition for application actions.",
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "registry/custom/app-button/app-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    }
+  ]
+}
