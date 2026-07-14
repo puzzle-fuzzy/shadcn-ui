@@ -5,5 +5,6 @@ coverage/
 .turbo/
 *.log
 *.tgz
+*.tsbuildinfo
 registry/public/
 packages/ui/src/entries/generated/
