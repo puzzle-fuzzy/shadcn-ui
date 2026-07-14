@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.3
+
+### Patch Changes
+
+- 29d5294: Add the React Widget custom component with line and activity mini charts.
+
 ## 0.1.2
 
 ### Patch Changes
