@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.2
+
+### Patch Changes
+
+- 4d5abd3: Restore the pointer cursor for enabled buttons and button-like elements.
+
 ## 0.1.1
 
 ### Patch Changes
