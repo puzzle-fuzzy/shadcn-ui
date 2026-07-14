@@ -1,0 +1,20 @@
+{
+  "name": "puzzle-fuzzy-shadcn-ui",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "typecheck": "bun run --workspaces --if-present --sequential typecheck",
+    "lint": "bun run --workspaces --if-present --sequential lint",
+    "test": "bun run --workspaces --if-present --sequential test",
+    "build": "bun run --workspaces --if-present --sequential build",
+    "verify": "bun run typecheck && bun run lint && bun run test && bun run build"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.2",
+    "typescript": "~6.0.2"
+  }
+}

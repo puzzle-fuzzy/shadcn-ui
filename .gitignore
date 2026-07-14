@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.vite/
+coverage/
+.turbo/
+*.log
+*.tgz
+registry/public/
+packages/ui/src/entries/generated/
