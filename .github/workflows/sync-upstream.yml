@@ -1,0 +1,60 @@
+name: Sync shadcn upstream
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 3 * * 1"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Sync official shadcn components
+        run: bun scripts/sync-upstream.ts
+
+      - name: Regenerate package entries
+        run: bun run --cwd packages/ui generate:entries
+
+      - name: Verify the synced package
+        run: bun run --cwd packages/ui verify
+
+      - name: Detect changes
+        id: changes
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Open draft update PR
+        if: steps.changes.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: shadcn-upstream
+          delete-branch: true
+          commit-message: "chore: sync shadcn upstream"
+          title: "chore: sync shadcn upstream"
+          body: |
+            Automated weekly update of the official shadcn component snapshot.
+
+            Custom components are protected by `scripts/sync-upstream.ts` and are not touched by this workflow.
+          draft: true

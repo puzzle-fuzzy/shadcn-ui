@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Verify workspace
+        run: bun run verify
+
+      - name: Validate shadcn registry
+        run: bunx --bun shadcn@latest registry validate ./registry.json
+
+      - name: Check package metadata
+        run: bunx --bun publint packages/ui
+
+      - name: Pack npm artifact
+        shell: bash
+        run: |
+          mkdir -p .artifacts
+          bun pm pack --cwd packages/ui --destination ../../.artifacts
+          test "$(find .artifacts -name '*.tgz' | wc -l)" -eq 1
