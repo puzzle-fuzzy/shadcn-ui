@@ -67,6 +67,38 @@ export default function App() {
               chartAriaLabel="Tasks completed over the last seven days"
             />
           </div>
+
+          <div className="flex flex-col gap-3 pt-4">
+            <div>
+              <p className="text-sm font-medium tracking-[0.2em] text-muted-foreground uppercase">中文内容示例</p>
+              <p className="mt-2 text-muted-foreground">检查中文标题、单位和图表无障碍标签在紧凑卡片中的显示效果。</p>
+            </div>
+
+            <div className="flex flex-wrap gap-3">
+              <Widget
+                title="花费"
+                value={85}
+                unit="元"
+                chartData={[42, 58, 45, 72, 60, 85, 78]}
+                chartAriaLabel="近 7 天花费趋势"
+              />
+              <Widget
+                title="最近两周活跃程度"
+                value={8}
+                unit="天"
+                chartType="activity"
+                chartData={[1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1]}
+                chartAriaLabel="最近两周活跃记录"
+              />
+              <Widget
+                title="完成任务"
+                value={8}
+                unit="个"
+                chartData={[3, 5, 2, 7, 4, 6, 8]}
+                chartAriaLabel="近 7 天完成任务趋势"
+              />
+            </div>
+          </div>
         </section>
       </div>
     </main>
