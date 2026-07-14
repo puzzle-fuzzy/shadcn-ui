@@ -1,6 +1,5 @@
 import { Button } from "@puzzle-fuzzy/shadcn-ui/button"
 import { AppButton } from "@puzzle-fuzzy/shadcn-ui/custom/app-button"
-import "@puzzle-fuzzy/shadcn-ui/styles.css"
 
 export default function App() {
   return (
